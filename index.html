@@ -1,345 +1,329 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xi Yang</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --accent:#7F77DD;
+  --accent-light:#EEEDFE;
+  --accent-mid:#AFA9EC;
+  --text:#1a1a1a;
+  --text2:#555;
+  --text3:#999;
+  --bg:#fafaf8;
+  --bg2:#f2f2ef;
+  --border:#e8e8e4;
+  --card:#ffffff;
+  --radius:16px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.7}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:32px;height:32px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#fff;letter-spacing:.02em}
+.logo-name{font-size:15px;font-weight:500;color:var(--text);letter-spacing:-.01em}
+.nav-right{display:flex;align-items:center;gap:2rem}
+.nav-links{display:flex;gap:1.75rem;align-items:center}
+.nav-links a{font-size:14px;color:var(--text2);cursor:pointer;transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--accent)}
+.lang-toggle{display:flex;background:var(--bg2);border-radius:20px;padding:3px;gap:2px;border:1px solid var(--border)}
+.lang-btn{font-size:12px;padding:4px 14px;border-radius:16px;cursor:pointer;border:none;background:transparent;color:var(--text2);font-weight:400;transition:all .2s}
+.lang-btn.active{background:var(--accent);color:#fff;font-weight:500}
+
+/* HERO */
+.hero{max-width:1000px;margin:0 auto;padding:5rem 3rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-left{}
+.hero-eyebrow{font-size:12px;font-weight:500;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.25rem}
+.hero h1{font-size:42px;font-weight:600;line-height:1.15;letter-spacing:-.02em;margin-bottom:1.25rem;color:var(--text)}
+.hero h1 span{color:var(--accent)}
+.hero-bio{font-size:15px;color:var(--text2);line-height:1.75;margin-bottom:2rem;max-width:400px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{font-size:14px;padding:10px 22px;border-radius:8px;background:var(--accent);color:#fff;cursor:pointer;font-weight:500;border:none;transition:opacity .2s}
+.btn-primary:hover{opacity:.85}
+.btn-ghost{font-size:14px;padding:10px 22px;border-radius:8px;border:1px solid var(--border);color:var(--text2);cursor:pointer;background:var(--card);transition:border-color .2s}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.hero-right{display:flex;flex-direction:column;gap:12px}
+.hero-stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem}
+.stat-label{font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.25rem}
+.stat-value{font-size:20px;font-weight:600;color:var(--text);letter-spacing:-.02em}
+.stat-sub{font-size:13px;color:var(--text2);margin-top:.15rem}
+.hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:.25rem}
+.hero-tag{font-size:12px;padding:4px 12px;border-radius:20px;background:var(--accent-light);color:var(--accent);font-weight:500}
+
+/* DIVIDER */
+.divider{max-width:1000px;margin:0 auto;padding:0 3rem}
+.divider hr{border:none;border-top:1px solid var(--border)}
+
+/* FEATURED */
+.featured-section{max-width:1000px;margin:0 auto;padding:3rem 3rem 2rem}
+.section-label{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.25rem}
+.featured-card{background:var(--accent);border-radius:var(--radius);padding:2.5rem;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;transition:opacity .2s}
+.featured-card:hover{opacity:.93}
+.fc-badge{font-size:11px;font-weight:600;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem}
+.fc-title{font-size:22px;font-weight:600;color:#fff;line-height:1.3;margin-bottom:.75rem;letter-spacing:-.01em}
+.fc-desc{font-size:14px;color:rgba(255,255,255,.8);line-height:1.65;margin-bottom:1.25rem}
+.fc-meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.fc-tag{font-size:11px;padding:3px 12px;border-radius:20px;background:rgba(255,255,255,.2);color:#fff;font-weight:500}
+.fc-date{font-size:12px;color:rgba(255,255,255,.65)}
+.fc-arrow{font-size:36px;color:rgba(255,255,255,.4);font-weight:300;align-self:center}
+
+/* GRID */
+.grid-section{max-width:1000px;margin:0 auto;padding:2rem 3rem 4rem}
+.grid-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter-btn{font-size:12px;padding:5px 16px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;transition:all .2s;font-weight:400}
+.filter-btn:hover{border-color:var(--accent);color:var(--accent)}
+.filter-btn.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.post-card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:1.5rem;cursor:pointer;transition:box-shadow .2s,border-color .2s;display:flex;flex-direction:column}
+.post-card:hover{border-color:var(--accent-mid);box-shadow:0 4px 20px rgba(127,119,221,.1)}
+.post-tag{font-size:11px;font-weight:500;padding:3px 11px;border-radius:20px;display:inline-block;margin-bottom:1rem;width:fit-content}
+.tag-career{background:#E1F5EE;color:#0F6E56}
+.tag-tech{background:#EEEDFE;color:#534AB7}
+.tag-lifestyle{background:#FAEEDA;color:#854F0B}
+.tag-culture{background:#FCE8F0;color:#9B2056}
+.post-card h3{font-size:15px;font-weight:500;margin-bottom:.6rem;line-height:1.45;letter-spacing:-.01em;flex:1}
+.post-card p{font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:1rem}
+.post-footer{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--text3);margin-top:auto;padding-top:.75rem;border-top:1px solid var(--border)}
+.post-arrow{color:var(--accent);font-size:14px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);background:var(--card)}
+.footer-inner{max-width:1000px;margin:0 auto;padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-left .footer-name{font-size:15px;font-weight:600;letter-spacing:-.01em;margin-bottom:.2rem}
+.footer-left .footer-sub{font-size:13px;color:var(--text3)}
+.footer-links{display:flex;gap:1.5rem;align-items:center}
+.footer-link{font-size:13px;color:var(--text2);cursor:pointer;transition:color .2s}
+.footer-link:hover{color:var(--accent)}
+.footer-copy{font-size:12px;color:var(--text3);width:100%;padding-top:1rem;border-top:1px solid var(--border)}
+
+/* LANG */
+.lang-en .zh{display:none}
+.lang-zh .en{display:none}
+
+@media(max-width:700px){
+  nav{padding:1rem 1.25rem}
+  .hero{grid-template-columns:1fr;padding:3rem 1.25rem 2rem;gap:2rem}
+  .featured-card{grid-template-columns:1fr}
+  .fc-arrow{display:none}
+  .grid{grid-template-columns:1fr}
+  .featured-section,.grid-section,.divider{padding-left:1.25rem;padding-right:1.25rem}
+  .footer-inner{padding:2rem 1.25rem}
+}
+</style>
 </head>
-<body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1">&lt;title&gt;Xi Yang&lt;/title&gt;</p>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1">*{margin:0;padding:0;box-sizing:border-box}</p>
-<p class="p1">:root{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--accent:#7F77DD;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--accent-light:#EEEDFE;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--accent-mid:#AFA9EC;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--text:#1a1a1a;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--text2:#555;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--text3:#999;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--bg:#fafaf8;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--bg2:#f2f2ef;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--border:#e8e8e4;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--card:#ffffff;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>--radius:16px;</p>
-<p class="p1">}</p>
-<p class="p1">body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.7}</p>
-<p class="p1">a{color:inherit;text-decoration:none}</p>
-<p class="p2"><br></p>
-<p class="p1">/* NAV */</p>
-<p class="p1">nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}</p>
-<p class="p1">.logo{display:flex;align-items:center;gap:10px}</p>
-<p class="p1">.logo-mark{width:32px;height:32px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#fff;letter-spacing:.02em}</p>
-<p class="p1">.logo-name{font-size:15px;font-weight:500;color:var(--text);letter-spacing:-.01em}</p>
-<p class="p1">.nav-right{display:flex;align-items:center;gap:2rem}</p>
-<p class="p1">.nav-links{display:flex;gap:1.75rem;align-items:center}</p>
-<p class="p1">.nav-links a{font-size:14px;color:var(--text2);cursor:pointer;transition:color .2s;letter-spacing:.01em}</p>
-<p class="p1">.nav-links a:hover{color:var(--accent)}</p>
-<p class="p1">.lang-toggle{display:flex;background:var(--bg2);border-radius:20px;padding:3px;gap:2px;border:1px solid var(--border)}</p>
-<p class="p1">.lang-btn{font-size:12px;padding:4px 14px;border-radius:16px;cursor:pointer;border:none;background:transparent;color:var(--text2);font-weight:400;transition:all .2s}</p>
-<p class="p1">.lang-btn.active{background:var(--accent);color:#fff;font-weight:500}</p>
-<p class="p2"><br></p>
-<p class="p1">/* HERO */</p>
-<p class="p1">.hero{max-width:1000px;margin:0 auto;padding:5rem 3rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}</p>
-<p class="p1">.hero-left{}</p>
-<p class="p1">.hero-eyebrow{font-size:12px;font-weight:500;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.25rem}</p>
-<p class="p1">.hero h1{font-size:42px;font-weight:600;line-height:1.15;letter-spacing:-.02em;margin-bottom:1.25rem;color:var(--text)}</p>
-<p class="p1">.hero h1 span{color:var(--accent)}</p>
-<p class="p1">.hero-bio{font-size:15px;color:var(--text2);line-height:1.75;margin-bottom:2rem;max-width:400px}</p>
-<p class="p1">.hero-actions{display:flex;gap:12px;flex-wrap:wrap}</p>
-<p class="p1">.btn-primary{font-size:14px;padding:10px 22px;border-radius:8px;background:var(--accent);color:#fff;cursor:pointer;font-weight:500;border:none;transition:opacity .2s}</p>
-<p class="p1">.btn-primary:hover{opacity:.85}</p>
-<p class="p1">.btn-ghost{font-size:14px;padding:10px 22px;border-radius:8px;border:1px solid var(--border);color:var(--text2);cursor:pointer;background:var(--card);transition:border-color .2s}</p>
-<p class="p1">.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}</p>
-<p class="p1">.hero-right{display:flex;flex-direction:column;gap:12px}</p>
-<p class="p1">.hero-stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem}</p>
-<p class="p1">.stat-label{font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.25rem}</p>
-<p class="p1">.stat-value{font-size:20px;font-weight:600;color:var(--text);letter-spacing:-.02em}</p>
-<p class="p1">.stat-sub{font-size:13px;color:var(--text2);margin-top:.15rem}</p>
-<p class="p1">.hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:.25rem}</p>
-<p class="p1">.hero-tag{font-size:12px;padding:4px 12px;border-radius:20px;background:var(--accent-light);color:var(--accent);font-weight:500}</p>
-<p class="p2"><br></p>
-<p class="p1">/* DIVIDER */</p>
-<p class="p1">.divider{max-width:1000px;margin:0 auto;padding:0 3rem}</p>
-<p class="p1">.divider hr{border:none;border-top:1px solid var(--border)}</p>
-<p class="p2"><br></p>
-<p class="p1">/* FEATURED */</p>
-<p class="p1">.featured-section{max-width:1000px;margin:0 auto;padding:3rem 3rem 2rem}</p>
-<p class="p1">.section-label{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.25rem}</p>
-<p class="p1">.featured-card{background:var(--accent);border-radius:var(--radius);padding:2.5rem;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;transition:opacity .2s}</p>
-<p class="p1">.featured-card:hover{opacity:.93}</p>
-<p class="p1">.fc-badge{font-size:11px;font-weight:600;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem}</p>
-<p class="p1">.fc-title{font-size:22px;font-weight:600;color:#fff;line-height:1.3;margin-bottom:.75rem;letter-spacing:-.01em}</p>
-<p class="p1">.fc-desc{font-size:14px;color:rgba(255,255,255,.8);line-height:1.65;margin-bottom:1.25rem}</p>
-<p class="p1">.fc-meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap}</p>
-<p class="p1">.fc-tag{font-size:11px;padding:3px 12px;border-radius:20px;background:rgba(255,255,255,.2);color:#fff;font-weight:500}</p>
-<p class="p1">.fc-date{font-size:12px;color:rgba(255,255,255,.65)}</p>
-<p class="p1">.fc-arrow{font-size:36px;color:rgba(255,255,255,.4);font-weight:300;align-self:center}</p>
-<p class="p2"><br></p>
-<p class="p1">/* GRID */</p>
-<p class="p1">.grid-section{max-width:1000px;margin:0 auto;padding:2rem 3rem 4rem}</p>
-<p class="p1">.grid-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem}</p>
-<p class="p1">.filters{display:flex;gap:8px;flex-wrap:wrap}</p>
-<p class="p1">.filter-btn{font-size:12px;padding:5px 16px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;transition:all .2s;font-weight:400}</p>
-<p class="p1">.filter-btn:hover{border-color:var(--accent);color:var(--accent)}</p>
-<p class="p1">.filter-btn.active{background:var(--text);color:var(--bg);border-color:var(--text)}</p>
-<p class="p1">.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}</p>
-<p class="p1">.post-card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:1.5rem;cursor:pointer;transition:box-shadow .2s,border-color .2s;display:flex;flex-direction:column}</p>
-<p class="p1">.post-card:hover{border-color:var(--accent-mid);box-shadow:0 4px 20px rgba(127,119,221,.1)}</p>
-<p class="p1">.post-tag{font-size:11px;font-weight:500;padding:3px 11px;border-radius:20px;display:inline-block;margin-bottom:1rem;width:fit-content}</p>
-<p class="p1">.tag-career{background:#E1F5EE;color:#0F6E56}</p>
-<p class="p1">.tag-tech{background:#EEEDFE;color:#534AB7}</p>
-<p class="p1">.tag-lifestyle{background:#FAEEDA;color:#854F0B}</p>
-<p class="p1">.tag-culture{background:#FCE8F0;color:#9B2056}</p>
-<p class="p1">.post-card h3{font-size:15px;font-weight:500;margin-bottom:.6rem;line-height:1.45;letter-spacing:-.01em;flex:1}</p>
-<p class="p1">.post-card p{font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:1rem}</p>
-<p class="p1">.post-footer{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--text3);margin-top:auto;padding-top:.75rem;border-top:1px solid var(--border)}</p>
-<p class="p1">.post-arrow{color:var(--accent);font-size:14px}</p>
-<p class="p2"><br></p>
-<p class="p1">/* FOOTER */</p>
-<p class="p1">footer{border-top:1px solid var(--border);background:var(--card)}</p>
-<p class="p1">.footer-inner{max-width:1000px;margin:0 auto;padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}</p>
-<p class="p1">.footer-left .footer-name{font-size:15px;font-weight:600;letter-spacing:-.01em;margin-bottom:.2rem}</p>
-<p class="p1">.footer-left .footer-sub{font-size:13px;color:var(--text3)}</p>
-<p class="p1">.footer-links{display:flex;gap:1.5rem;align-items:center}</p>
-<p class="p1">.footer-link{font-size:13px;color:var(--text2);cursor:pointer;transition:color .2s}</p>
-<p class="p1">.footer-link:hover{color:var(--accent)}</p>
-<p class="p1">.footer-copy{font-size:12px;color:var(--text3);width:100%;padding-top:1rem;border-top:1px solid var(--border)}</p>
-<p class="p2"><br></p>
-<p class="p1">/* LANG */</p>
-<p class="p1">.lang-en .zh{display:none}</p>
-<p class="p1">.lang-zh .en{display:none}</p>
-<p class="p2"><br></p>
-<p class="p1">@media(max-width:700px){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>nav{padding:1rem 1.25rem}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.hero{grid-template-columns:1fr;padding:3rem 1.25rem 2rem;gap:2rem}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.featured-card{grid-template-columns:1fr}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.fc-arrow{display:none}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.grid{grid-template-columns:1fr}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.featured-section,.grid-section,.divider{padding-left:1.25rem;padding-right:1.25rem}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.footer-inner{padding:2rem 1.25rem}</p>
-<p class="p1">}</p>
-<p class="p1">&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body class="lang-en"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- NAV --&gt;</p>
-<p class="p1">&lt;nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="logo"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="logo-mark"&gt;XY&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="logo-name"&gt;Xi Yang&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="nav-right"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="nav-links"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="en" onclick="scrollTo(0,0)"&gt;Home&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="zh" onclick="scrollTo(0,0)"&gt;首页&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="en" onclick="document.querySelector('.grid-section').scrollIntoView({behavior:'smooth'})"&gt;Writing&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="zh" onclick="document.querySelector('.grid-section').scrollIntoView({behavior:'smooth'})"&gt;文章&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="en" href="https://www.linkedin.com/in/xi-yang-79249b101/" target="_blank"&gt;LinkedIn&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="zh" href="https://www.linkedin.com/in/xi-yang-79249b101/" target="_blank"&gt;LinkedIn&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="lang-toggle"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="lang-btn active" id="btn-en" onclick="setLang('en')"&gt;EN&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="lang-btn" id="btn-zh" onclick="setLang('zh')"&gt;中文&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- HERO --&gt;</p>
-<p class="p1">&lt;section class="hero"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero-left"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-eyebrow en"&gt;Product · AI · Culture&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-eyebrow zh"&gt;产品 · AI · 文化&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1 class="en"&gt;Building products.&lt;br&gt;Bridging &lt;span&gt;cultures.&lt;/span&gt;&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1 class="zh"&gt;打造产品，&lt;br&gt;连接&lt;span&gt;中美&lt;/span&gt;。&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="hero-bio en"&gt;Global Head of Advertiser Experience at TikTok. Writing about product reflections, AI tools, Bay Area life, and the cultural thoughts of living between China and the U.S.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="hero-bio zh"&gt;TikTok 广告主体验全球负责人。记录产品思考、AI工具、湾区生活，以及在中美之间生活的文化感悟。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-actions"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn-primary en" onclick="document.querySelector('.grid-section').scrollIntoView({behavior:'smooth'})"&gt;Read my writing →&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn-primary zh" onclick="document.querySelector('.grid-section').scrollIntoView({behavior:'smooth'})"&gt;阅读文章 →&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="https://www.linkedin.com/in/xi-yang-79249b101/" target="_blank"&gt;&lt;button class="btn-ghost"&gt;LinkedIn&lt;/button&gt;&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero-right"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-stat-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-label en"&gt;Current Focus&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-label zh"&gt;当前专注&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-value en"&gt;AI × Customer Experience&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-value zh"&gt;AI × 客户体验&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-sub en"&gt;Building agentic AI tools for advertiser experience&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-sub zh"&gt;构建面向广告主体验的智能 AI 工具&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-stat-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-label en"&gt;Learning Now&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-label zh"&gt;正在学习&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-value en"&gt;Stanford × Coursera&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-value zh"&gt;斯坦福 × Coursera&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-sub en"&gt;Generative AI &amp; agentic product design&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-sub zh"&gt;生成式AI与智能体产品设计&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-stat-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-label en"&gt;Writing About&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-label zh"&gt;写作主题&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hero-tags"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="hero-tag en"&gt;Career&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="hero-tag zh"&gt;职业&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="hero-tag en"&gt;Tech &amp; AI&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="hero-tag zh"&gt;技术与AI&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="hero-tag en"&gt;Bay Area Life&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="hero-tag zh"&gt;湾区生活&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="hero-tag en"&gt;China–U.S. Culture Experience&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="hero-tag zh"&gt;中美文化体验&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div class="divider"&gt;&lt;hr&gt;&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- FEATURED --&gt;</p>
-<p class="p1">&lt;section class="featured-section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="section-label en"&gt;Featured Post&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="section-label zh"&gt;精选文章&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="featured-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fc-badge en"&gt;✦ Latest · Career&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fc-badge zh"&gt;✦ 最新 · 职业&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fc-title en"&gt;Project Seamless: What I Learned Coordinating 100+ People Across a Global Initiative&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fc-title zh"&gt;Project Seamless 复盘：协调百人全球项目的收获与反思&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fc-desc en"&gt;Leading a company-wide effort to improve advertiser satisfaction taught me that product work is really people work. Here's what actually moved the needle — and what surprised me most.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fc-desc zh"&gt;主导提升广告主满意度的全公司级项目，让我深刻意识到：产品工作本质上是人的工作。以下是真正推动结果的关键，以及最出乎我意料的发现。&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="fc-meta"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="fc-tag en"&gt;Career&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="fc-tag zh"&gt;职业&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="fc-date en"&gt;April 2025 · 8 min read&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="fc-date zh"&gt;2025年4月 · 8分钟阅读&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="fc-arrow"&gt;→&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- GRID --&gt;</p>
-<p class="p1">&lt;section class="grid-section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="grid-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-label en" style="margin-bottom:0"&gt;All Posts&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-label zh" style="margin-bottom:0"&gt;全部文章&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="filters"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="filter-btn active" onclick="filter('all',this)"&gt;&lt;span class="en"&gt;All&lt;/span&gt;&lt;span class="zh"&gt;全部&lt;/span&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="filter-btn" onclick="filter('career',this)"&gt;&lt;span class="en"&gt;Career&lt;/span&gt;&lt;span class="zh"&gt;职业&lt;/span&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="filter-btn" onclick="filter('tech',this)"&gt;&lt;span class="en"&gt;Tech &amp; AI&lt;/span&gt;&lt;span class="zh"&gt;技术与AI&lt;/span&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="filter-btn" onclick="filter('lifestyle',this)"&gt;&lt;span class="en"&gt;Lifestyle&lt;/span&gt;&lt;span class="zh"&gt;生活方式&lt;/span&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="filter-btn" onclick="filter('culture',this)"&gt;&lt;span class="en"&gt;Culture&lt;/span&gt;&lt;span class="zh"&gt;文化&lt;/span&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="grid" id="post-grid"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="post-card" data-cat="tech"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="post-tag tag-tech en"&gt;Tech &amp; AI&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="post-tag tag-tech zh"&gt;技术与AI&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 class="en"&gt;From PM to AI Practitioner: My Learning Roadmap&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 class="zh"&gt;从产品经理到AI实践者：我的学习路线图&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="en"&gt;How I structured my learning across DeepLearning.AI, Stanford, and Coursera — and what actually stuck.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="zh"&gt;我如何规划横跨 DeepLearning.AI、斯坦福和 Coursera 的学习之旅。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="post-footer"&gt;&lt;span&gt;Mar 2025&lt;/span&gt;&lt;span class="post-arrow"&gt;→&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="post-card" data-cat="career"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="post-tag tag-career en"&gt;Career&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="post-tag tag-career zh"&gt;职业&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 class="en"&gt;Writing Performance Reviews That Actually Help Your Team&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 class="zh"&gt;写一份真正帮助团队成长的绩效评估&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="en"&gt;What I learned after writing reviews for 15 people: the difference between feedback that motivates and feedback that lands flat.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="zh"&gt;为15人写完绩效评估后的感悟：有效反馈与无效反馈的本质区别。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="post-footer"&gt;&lt;span&gt;Feb 2025&lt;/span&gt;&lt;span class="post-arrow"&gt;→&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="post-card" data-cat="culture"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="post-tag tag-culture en"&gt;Culture&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="post-tag tag-culture zh"&gt;文化&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 class="en"&gt;10 Things That Still Surprise Me About American Work Culture&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 class="zh"&gt;那些至今仍让我惊讶的美国职场文化&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="en"&gt;From radical transparency to small talk rituals — a Chinese product leader's honest observations after years in Silicon Valley.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="zh"&gt;从"极度透明"到小聊文化——一个中国产品人在硅谷多年后的真实观察。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="post-footer"&gt;&lt;span&gt;Jan 2025&lt;/span&gt;&lt;span class="post-arrow"&gt;→&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="post-card" data-cat="tech"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="post-tag tag-tech en"&gt;Tech &amp; AI&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="post-tag tag-tech zh"&gt;技术与AI&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 class="en"&gt;Building a CSAT Analysis Bot Without Writing Code&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 class="zh"&gt;不写代码，搭建一个CSAT分析机器人&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="en"&gt;How I used Coze and internal data pipelines to surface advertiser pain points automatically.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="zh"&gt;如何利用 Coze 和内部数据管道自动挖掘广告主痛点。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="post-footer"&gt;&lt;span&gt;Dec 2024&lt;/span&gt;&lt;span class="post-arrow"&gt;→&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="post-card" data-cat="lifestyle"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="post-tag tag-lifestyle en"&gt;Lifestyle&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="post-tag tag-lifestyle zh"&gt;生活方式&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 class="en"&gt;Learning Bachata as a Type-A Person&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 class="zh"&gt;一个A型人格学跳巴恰塔的自我修炼&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="en"&gt;Letting go of perfection on the dance floor — and what it teaches you about everything else.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="zh"&gt;在舞池里放下对完美的执着，以及它教会我的人生道理。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="post-footer"&gt;&lt;span&gt;Nov 2024&lt;/span&gt;&lt;span class="post-arrow"&gt;→&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="post-card" data-cat="culture"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="post-tag tag-culture en"&gt;Culture&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="post-tag tag-culture zh"&gt;文化&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 class="en"&gt;Home Is a Feeling, Not a Country&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 class="zh"&gt;家是一种感觉，而不是一个地方&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="en"&gt;On belonging, identity, and what it means to build a life between two very different worlds.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="zh"&gt;关于归属感、身份认同，以及在中美两个截然不同的世界之间构建生活的意义。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="post-footer"&gt;&lt;span&gt;Oct 2024&lt;/span&gt;&lt;span class="post-arrow"&gt;→&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;!-- FOOTER --&gt;</p>
-<p class="p1">&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="footer-inner"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="footer-left"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="footer-name"&gt;Xi Yang&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="footer-sub en"&gt;Product · AI · Bay Area Life · China–U.S. Culture&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="footer-sub zh"&gt;产品 · AI · 湾区生活 · 中美文化&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="footer-links"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="https://www.linkedin.com/in/xi-yang-79249b101/" target="_blank" class="footer-link"&gt;LinkedIn&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="footer-link"&gt;小红书&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="footer-copy en"&gt;© 2025 Xi Yang · All rights reserved&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="footer-copy zh"&gt;© 2025 Xi Yang · 保留所有权利&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1">function setLang(l){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.body.className='lang-'+l;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('btn-en').classList.toggle('active',l==='en');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('btn-zh').classList.toggle('active',l==='zh');</p>
-<p class="p1">}</p>
-<p class="p1">function filter(cat,btn){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll('.filter-btn').forEach(b=&gt;b.classList.remove('active'));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>btn.classList.add('active');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll('.post-card').forEach(c=&gt;{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.querySelector('.featured-section').style.display=(cat==='all'||cat==='career')?'':'none';</p>
-<p class="p1">}</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<body class="lang-en">
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-mark">XY</div>
+    <span class="logo-name">Xi Yang</span>
+  </div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a class="en" onclick="scrollTo(0,0)">Home</a>
+      <a class="zh" onclick="scrollTo(0,0)">首页</a>
+      <a class="en" onclick="document.querySelector('.grid-section').scrollIntoView({behavior:'smooth'})">Writing</a>
+      <a class="zh" onclick="document.querySelector('.grid-section').scrollIntoView({behavior:'smooth'})">文章</a>
+      <a class="en" href="https://www.linkedin.com/in/xi-yang-79249b101/" target="_blank">LinkedIn</a>
+      <a class="zh" href="https://www.linkedin.com/in/xi-yang-79249b101/" target="_blank">LinkedIn</a>
+    </div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow en">Product · AI · Culture</div>
+    <div class="hero-eyebrow zh">产品 · AI · 文化</div>
+    <h1 class="en">Building products.<br>Bridging <span>cultures.</span></h1>
+    <h1 class="zh">打造产品，<br>连接<span>中美</span>。</h1>
+    <p class="hero-bio en">Global Head of Advertiser Experience at TikTok. Writing about product reflections, AI tools, Bay Area life, and the cultural thoughts of living between China and the U.S.</p>
+    <p class="hero-bio zh">TikTok 广告主体验全球负责人。记录产品思考、AI工具、湾区生活，以及在中美之间生活的文化感悟。</p>
+    <div class="hero-actions">
+      <button class="btn-primary en" onclick="document.querySelector('.grid-section').scrollIntoView({behavior:'smooth'})">Read my writing →</button>
+      <button class="btn-primary zh" onclick="document.querySelector('.grid-section').scrollIntoView({behavior:'smooth'})">阅读文章 →</button>
+      <a href="https://www.linkedin.com/in/xi-yang-79249b101/" target="_blank"><button class="btn-ghost">LinkedIn</button></a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat-card">
+      <div class="stat-label en">Current Focus</div>
+      <div class="stat-label zh">当前专注</div>
+      <div class="stat-value en">AI × Customer Experience</div>
+      <div class="stat-value zh">AI × 客户体验</div>
+      <div class="stat-sub en">Building agentic AI tools for advertiser experience</div>
+      <div class="stat-sub zh">构建面向广告主体验的智能 AI 工具</div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="stat-label en">Learning Now</div>
+      <div class="stat-label zh">正在学习</div>
+      <div class="stat-value en">Stanford × Coursera</div>
+      <div class="stat-value zh">斯坦福 × Coursera</div>
+      <div class="stat-sub en">Generative AI & agentic product design</div>
+      <div class="stat-sub zh">生成式AI与智能体产品设计</div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="stat-label en">Writing About</div>
+      <div class="stat-label zh">写作主题</div>
+      <div class="hero-tags">
+        <span class="hero-tag en">Career</span>
+        <span class="hero-tag zh">职业</span>
+        <span class="hero-tag en">Tech & AI</span>
+        <span class="hero-tag zh">技术与AI</span>
+        <span class="hero-tag en">Bay Area Life</span>
+        <span class="hero-tag zh">湾区生活</span>
+        <span class="hero-tag en">China–U.S. Culture Experience</span>
+        <span class="hero-tag zh">中美文化体验</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- FEATURED -->
+<section class="featured-section">
+  <div class="section-label en">Featured Post</div>
+  <div class="section-label zh">精选文章</div>
+  <div class="featured-card">
+    <div>
+      <div class="fc-badge en">✦ Latest · Career</div>
+      <div class="fc-badge zh">✦ 最新 · 职业</div>
+      <div class="fc-title en">Project Seamless: What I Learned Coordinating 100+ People Across a Global Initiative</div>
+      <div class="fc-title zh">Project Seamless 复盘：协调百人全球项目的收获与反思</div>
+      <div class="fc-desc en">Leading a company-wide effort to improve advertiser satisfaction taught me that product work is really people work. Here's what actually moved the needle — and what surprised me most.</div>
+      <div class="fc-desc zh">主导提升广告主满意度的全公司级项目，让我深刻意识到：产品工作本质上是人的工作。以下是真正推动结果的关键，以及最出乎我意料的发现。</div>
+      <div class="fc-meta">
+        <span class="fc-tag en">Career</span>
+        <span class="fc-tag zh">职业</span>
+        <span class="fc-date en">April 2025 · 8 min read</span>
+        <span class="fc-date zh">2025年4月 · 8分钟阅读</span>
+      </div>
+    </div>
+    <div class="fc-arrow">→</div>
+  </div>
+</section>
+
+<!-- GRID -->
+<section class="grid-section">
+  <div class="grid-header">
+    <div class="section-label en" style="margin-bottom:0">All Posts</div>
+    <div class="section-label zh" style="margin-bottom:0">全部文章</div>
+    <div class="filters">
+      <button class="filter-btn active" onclick="filter('all',this)"><span class="en">All</span><span class="zh">全部</span></button>
+      <button class="filter-btn" onclick="filter('career',this)"><span class="en">Career</span><span class="zh">职业</span></button>
+      <button class="filter-btn" onclick="filter('tech',this)"><span class="en">Tech & AI</span><span class="zh">技术与AI</span></button>
+      <button class="filter-btn" onclick="filter('lifestyle',this)"><span class="en">Lifestyle</span><span class="zh">生活方式</span></button>
+      <button class="filter-btn" onclick="filter('culture',this)"><span class="en">Culture</span><span class="zh">文化</span></button>
+    </div>
+  </div>
+  <div class="grid" id="post-grid">
+
+    <div class="post-card" data-cat="tech">
+      <span class="post-tag tag-tech en">Tech & AI</span>
+      <span class="post-tag tag-tech zh">技术与AI</span>
+      <h3 class="en">From PM to AI Practitioner: My Learning Roadmap</h3>
+      <h3 class="zh">从产品经理到AI实践者：我的学习路线图</h3>
+      <p class="en">How I structured my learning across DeepLearning.AI, Stanford, and Coursera — and what actually stuck.</p>
+      <p class="zh">我如何规划横跨 DeepLearning.AI、斯坦福和 Coursera 的学习之旅。</p>
+      <div class="post-footer"><span>Mar 2025</span><span class="post-arrow">→</span></div>
+    </div>
+
+    <div class="post-card" data-cat="career">
+      <span class="post-tag tag-career en">Career</span>
+      <span class="post-tag tag-career zh">职业</span>
+      <h3 class="en">Writing Performance Reviews That Actually Help Your Team</h3>
+      <h3 class="zh">写一份真正帮助团队成长的绩效评估</h3>
+      <p class="en">What I learned after writing reviews for 15 people: the difference between feedback that motivates and feedback that lands flat.</p>
+      <p class="zh">为15人写完绩效评估后的感悟：有效反馈与无效反馈的本质区别。</p>
+      <div class="post-footer"><span>Feb 2025</span><span class="post-arrow">→</span></div>
+    </div>
+
+    <div class="post-card" data-cat="culture">
+      <span class="post-tag tag-culture en">Culture</span>
+      <span class="post-tag tag-culture zh">文化</span>
+      <h3 class="en">10 Things That Still Surprise Me About American Work Culture</h3>
+      <h3 class="zh">那些至今仍让我惊讶的美国职场文化</h3>
+      <p class="en">From radical transparency to small talk rituals — a Chinese product leader's honest observations after years in Silicon Valley.</p>
+      <p class="zh">从"极度透明"到小聊文化——一个中国产品人在硅谷多年后的真实观察。</p>
+      <div class="post-footer"><span>Jan 2025</span><span class="post-arrow">→</span></div>
+    </div>
+
+    <div class="post-card" data-cat="tech">
+      <span class="post-tag tag-tech en">Tech & AI</span>
+      <span class="post-tag tag-tech zh">技术与AI</span>
+      <h3 class="en">Building a CSAT Analysis Bot Without Writing Code</h3>
+      <h3 class="zh">不写代码，搭建一个CSAT分析机器人</h3>
+      <p class="en">How I used Coze and internal data pipelines to surface advertiser pain points automatically.</p>
+      <p class="zh">如何利用 Coze 和内部数据管道自动挖掘广告主痛点。</p>
+      <div class="post-footer"><span>Dec 2024</span><span class="post-arrow">→</span></div>
+    </div>
+
+    <div class="post-card" data-cat="lifestyle">
+      <span class="post-tag tag-lifestyle en">Lifestyle</span>
+      <span class="post-tag tag-lifestyle zh">生活方式</span>
+      <h3 class="en">Learning Bachata as a Type-A Person</h3>
+      <h3 class="zh">一个A型人格学跳巴恰塔的自我修炼</h3>
+      <p class="en">Letting go of perfection on the dance floor — and what it teaches you about everything else.</p>
+      <p class="zh">在舞池里放下对完美的执着，以及它教会我的人生道理。</p>
+      <div class="post-footer"><span>Nov 2024</span><span class="post-arrow">→</span></div>
+    </div>
+
+    <div class="post-card" data-cat="culture">
+      <span class="post-tag tag-culture en">Culture</span>
+      <span class="post-tag tag-culture zh">文化</span>
+      <h3 class="en">Home Is a Feeling, Not a Country</h3>
+      <h3 class="zh">家是一种感觉，而不是一个地方</h3>
+      <p class="en">On belonging, identity, and what it means to build a life between two very different worlds.</p>
+      <p class="zh">关于归属感、身份认同，以及在中美两个截然不同的世界之间构建生活的意义。</p>
+      <div class="post-footer"><span>Oct 2024</span><span class="post-arrow">→</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-name">Xi Yang</div>
+      <div class="footer-sub en">Product · AI · Bay Area Life · China–U.S. Culture</div>
+      <div class="footer-sub zh">产品 · AI · 湾区生活 · 中美文化</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/xi-yang-79249b101/" target="_blank" class="footer-link">LinkedIn</a>
+      <span class="footer-link">小红书</span>
+    </div>
+    <div class="footer-copy en">© 2025 Xi Yang · All rights reserved</div>
+    <div class="footer-copy zh">© 2025 Xi Yang · 保留所有权利</div>
+  </div>
+</footer>
+
+<script>
+function setLang(l){
+  document.body.className='lang-'+l;
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  document.getElementById('btn-zh').classList.toggle('active',l==='zh');
+}
+function filter(cat,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.post-card').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none';
+  });
+  document.querySelector('.featured-section').style.display=(cat==='all'||cat==='career')?'':'none';
+}
+</script>
 </body>
 </html>
